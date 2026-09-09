@@ -27,16 +27,16 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-[#FAFAFA] flex">
+    <div className="min-h-screen bg-background text-foreground flex">
       {/* Sidebar - Desktop */}
-      <aside className="hidden lg:flex flex-col w-64 bg-[#080808] border-r border-neutral-800 p-6 justify-between fixed h-screen">
+      <aside className="hidden lg:flex flex-col w-64 bg-black/20 border-r border-neutral-800 p-6 justify-between fixed h-screen">
         <div>
           <Link href="/dashboard" className="flex items-center gap-2 text-xl font-bold tracking-tighter mb-10">
-            <span className="w-6 h-6 rounded-full bg-[#B7FF00] flex items-center justify-center text-black font-black text-xs">G</span>
+            <span className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-black font-black text-xs">G</span>
             GrowAI
           </Link>
           <nav className="space-y-1 text-sm font-medium">
-            <Link href="/dashboard" className="flex items-center gap-3 px-4 py-3 rounded-xl bg-neutral-900 text-[#B7FF00]">
+            <Link href="/dashboard" className="flex items-center gap-3 px-4 py-3 rounded-xl bg-neutral-900 text-primary">
               <LayoutDashboard className="w-4 h-4" /> Overview
             </Link>
             <Link href="/grow-followers" className="flex items-center gap-3 px-4 py-3 rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition">
@@ -75,21 +75,21 @@ export default function DashboardPage() {
 
       {/* Main Content */}
       <main className="flex-1 lg:pl-64">
-        <header className="h-20 border-b border-neutral-800 px-6 sm:px-10 flex items-center justify-between bg-[#0A0A0A]/80 backdrop-blur-md sticky top-0 z-40">
+        <header className="h-20 border-b border-neutral-800 px-6 sm:px-10 flex items-center justify-between bg-background/80 backdrop-blur-md sticky top-0 z-40">
           <div className="flex items-center gap-4">
             <button className="lg:hidden text-neutral-300" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
             <h1 className="text-lg font-bold">Dashboard Overview</h1>
           </div>
-          <Link href="/content" className="bg-[#B7FF00] text-black font-semibold text-xs px-4 py-2 rounded-full hover:bg-[#a3e600] transition flex items-center gap-1.5">
+          <Link href="/content" className="bg-primary text-white font-semibold text-xs px-4 py-2 rounded-full hover:bg-primary/90 transition flex items-center gap-1.5">
             <Plus className="w-3.5 h-3.5" /> Create Reel
           </Link>
         </header>
 
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#121212] border-b border-neutral-800 p-6 flex flex-col gap-2">
-            <Link href="/dashboard" className="px-4 py-2.5 rounded-xl bg-neutral-900 text-[#B7FF00] font-medium">Overview</Link>
+          <div className="lg:hidden bg-card border-b border-neutral-800 p-6 flex flex-col gap-2">
+            <Link href="/dashboard" className="px-4 py-2.5 rounded-xl bg-neutral-900 text-primary font-medium">Overview</Link>
             <Link href="/grow-followers" className="px-4 py-2.5 rounded-xl text-neutral-400 font-medium">Grow Followers</Link>
             <Link href="/grow-engagement" className="px-4 py-2.5 rounded-xl text-neutral-400 font-medium">Grow Engagement</Link>
             <Link href="/content" className="px-4 py-2.5 rounded-xl text-neutral-400 font-medium">Content Studio</Link>
@@ -110,42 +110,42 @@ export default function DashboardPage() {
           {loading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="bg-[#121212] border border-neutral-800 rounded-2xl p-6 h-32 animate-pulse" />
+                <div key={i} className="bg-card border border-neutral-800 rounded-2xl p-6 h-32 animate-pulse" />
               ))}
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-[#121212] border border-neutral-800 rounded-2xl p-6">
+              <div className="bg-card border border-neutral-800 rounded-2xl p-6">
                 <div className="text-xs text-neutral-400 font-mono mb-2">FOLLOWERS</div>
                 <div className="text-3xl font-bold mb-1">{metrics?.followers.toLocaleString()}</div>
-                <div className="text-xs text-[#B7FF00] flex items-center gap-1">+{metrics?.followersChange}% this week</div>
+                <div className="text-xs text-primary flex items-center gap-1">+{metrics?.followersChange}% this week</div>
               </div>
-              <div className="bg-[#121212] border border-neutral-800 rounded-2xl p-6">
+              <div className="bg-card border border-neutral-800 rounded-2xl p-6">
                 <div className="text-xs text-neutral-400 font-mono mb-2">REACH</div>
                 <div className="text-3xl font-bold mb-1">{(metrics?.reach! / 1000).toFixed(1)}K</div>
-                <div className="text-xs text-[#B7FF00] flex items-center gap-1">+{metrics?.reachChange}% this week</div>
+                <div className="text-xs text-primary flex items-center gap-1">+{metrics?.reachChange}% this week</div>
               </div>
-              <div className="bg-[#121212] border border-neutral-800 rounded-2xl p-6">
+              <div className="bg-card border border-neutral-800 rounded-2xl p-6">
                 <div className="text-xs text-neutral-400 font-mono mb-2">ENGAGEMENT RATE</div>
                 <div className="text-3xl font-bold mb-1">{metrics?.engagementRate}%</div>
-                <div className="text-xs text-[#B7FF00] flex items-center gap-1">+{metrics?.engagementChange}% this week</div>
+                <div className="text-xs text-primary flex items-center gap-1">+{metrics?.engagementChange}% this week</div>
               </div>
-              <div className="bg-[#121212] border border-neutral-800 rounded-2xl p-6">
+              <div className="bg-card border border-neutral-800 rounded-2xl p-6">
                 <div className="text-xs text-neutral-400 font-mono mb-2">PROFILE VISITS</div>
                 <div className="text-3xl font-bold mb-1">{metrics?.profileVisits.toLocaleString()}</div>
-                <div className="text-xs text-[#B7FF00] flex items-center gap-1">+{metrics?.profileVisitsChange}% this week</div>
+                <div className="text-xs text-primary flex items-center gap-1">+{metrics?.profileVisitsChange}% this week</div>
               </div>
             </div>
           )}
 
           {/* Today's Growth Opportunities */}
-          <div className="bg-[#121212] border border-neutral-800 rounded-2xl p-6 sm:p-8">
+          <div className="bg-card border border-neutral-800 rounded-2xl p-6 sm:p-8">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-lg font-bold">Today&apos;s Growth Opportunities</h3>
                 <p className="text-xs text-neutral-400">AI-discovered relevant profiles matching your niche</p>
               </div>
-              <Link href="/grow-followers" className="text-xs text-[#B7FF00] hover:underline flex items-center gap-1">
+              <Link href="/grow-followers" className="text-xs text-primary hover:underline flex items-center gap-1">
                 View all <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -157,7 +157,7 @@ export default function DashboardPage() {
                     <img src={opp.avatar} alt={opp.handle} className="w-10 h-10 rounded-full object-cover" />
                     <div>
                       <div className="text-sm font-bold text-white">{opp.handle}</div>
-                      <div className="text-xs text-neutral-400">{opp.category} • <span className="text-[#B7FF00]">{opp.relevanceScore}% match</span></div>
+                      <div className="text-xs text-neutral-400">{opp.category} • <span className="text-primary">{opp.relevanceScore}% match</span></div>
                     </div>
                   </div>
                   <Link href="/grow-followers" className="bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-semibold px-3.5 py-2 rounded-lg transition">

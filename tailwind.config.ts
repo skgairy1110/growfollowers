@@ -26,13 +26,13 @@ const config: Config = {
           foreground: "hsl(var(--primary-foreground))",
         },
         accent: {
-          DEFAULT: "#B7FF00",
-          foreground: "#0A0A0A",
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         charcoal: {
-          DEFAULT: "#121212",
-          light: "#1E1E1E",
-          dark: "#080808",
+          DEFAULT: "hsl(222, 30%, 14%)",
+          light: "hsl(223, 25%, 20%)",
+          dark: "hsl(222, 47%, 4%)",
         },
       },
       borderRadius: {
@@ -42,7 +42,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [], // <--- Ensure this is empty, with NO require statements
+  plugins: [],
 }
 
 export default config

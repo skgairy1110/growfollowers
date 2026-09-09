@@ -3,17 +3,17 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "GrowAI — Grow Your Instagram. Let AI Do The Work.",
-  description: "AI-powered Instagram growth platform for legitimate audience discovery, content strategy, and engagement.",
+  description: "AI-powered Instagram growth platform for audience discovery, content strategy, and intelligent engagement.",
+  themeColor: "#0A0A0A",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <body className="bg-[#0A0A0A] text-[#FAFAFA] antialiased selection:bg-[#B7FF00] selection:text-black">
+      <body 
+        className="bg-background text-foreground antialiased selection:bg-primary selection:text-white"
+        suppressHydrationWarning={true}
+      >
         {children}
       </body>
     </html>

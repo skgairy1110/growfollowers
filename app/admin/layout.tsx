@@ -6,15 +6,15 @@ import { LayoutDashboard, Users, Target, BarChart3, Settings, LogOut } from 'luc
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-[#FAFAFA] flex">
-      <aside className="hidden lg:flex flex-col w-64 bg-[#080808] border-r border-neutral-800 p-6 justify-between fixed h-screen">
+    <div className="min-h-screen bg-background text-foreground flex">
+      <aside className="hidden lg:flex flex-col w-64 bg-black/20 border-r border-neutral-800 p-6 justify-between fixed h-screen">
         <div>
           <Link href="/admin" className="flex items-center gap-2 text-xl font-bold tracking-tighter mb-10">
             <span className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-black font-black text-xs">A</span>
             GrowAI Admin
           </Link>
           <nav className="space-y-1 text-sm font-medium">
-            <Link href="/admin" className="flex items-center gap-3 px-4 py-3 rounded-xl bg-neutral-900 text-[#B7FF00]">
+            <Link href="/admin" className="flex items-center gap-3 px-4 py-3 rounded-xl bg-neutral-900 text-primary">
               <LayoutDashboard className="w-4 h-4" /> Overview
             </Link>
             <Link href="/admin/customers" className="flex items-center gap-3 px-4 py-3 rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition">

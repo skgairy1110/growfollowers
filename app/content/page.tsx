@@ -21,12 +21,12 @@ export default function ContentStudioPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-[#FAFAFA] p-6 sm:p-10 max-w-5xl mx-auto">
+    <div className="min-h-screen bg-background text-foreground p-6 sm:p-10 max-w-5xl mx-auto">
       <div className="flex items-center justify-between mb-8">
         <Link href="/dashboard" className="text-sm text-neutral-400 hover:text-white flex items-center gap-1">
           <ArrowLeft className="w-4 h-4" /> Back to Dashboard
         </Link>
-        <span className="text-xs font-mono text-[#B7FF00]">CONTENT STUDIO</span>
+        <span className="text-xs font-mono text-primary">CONTENT STUDIO</span>
       </div>
 
       <h1 className="text-3xl font-bold tracking-tight mb-2">Content Studio</h1>
@@ -39,7 +39,7 @@ export default function ContentStudioPage() {
             key={t}
             onClick={() => setTab(t)}
             className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition ${
-              tab === t ? 'bg-[#B7FF00] text-black font-bold' : 'bg-[#121212] border border-neutral-800 text-neutral-300 hover:text-white'
+              tab === t ? 'bg-primary text-white font-bold' : 'bg-card border border-neutral-800 text-neutral-300 hover:text-white'
             }`}
           >
             {t}
@@ -51,17 +51,17 @@ export default function ContentStudioPage() {
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-bold">AI Content Ideas</h3>
-            <button onClick={() => alert('New AI idea generated!')} className="bg-[#B7FF00] text-black font-semibold text-xs px-4 py-2 rounded-xl hover:bg-[#a3e600] transition flex items-center gap-1.5">
+            <button onClick={() => alert('New AI idea generated!')} className="bg-primary text-white font-semibold text-xs px-4 py-2 rounded-xl hover:bg-primary/90 transition flex items-center gap-1.5">
               <Plus className="w-3.5 h-3.5" /> Generate Idea
             </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {ideas.map((idea) => (
-              <div key={idea.id} className="bg-[#121212] border border-neutral-800 p-6 rounded-2xl flex flex-col justify-between">
+              <div key={idea.id} className="bg-card border border-neutral-800 p-6 rounded-2xl flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-mono bg-[#B7FF00]/10 text-[#B7FF00] px-2.5 py-1 rounded-full">{idea.type}</span>
+                    <span className="text-[10px] font-mono bg-primary/10 text-primary px-2.5 py-1 rounded-full">{idea.type}</span>
                     <span className="text-xs text-neutral-500 font-mono">{idea.status}</span>
                   </div>
                   <h4 className="text-base font-bold mb-2 text-white">{idea.title}</h4>
@@ -77,8 +77,8 @@ export default function ContentStudioPage() {
       )}
 
       {tab !== 'Ideas' && (
-        <div className="bg-[#121212] border border-neutral-800 rounded-2xl p-16 text-center space-y-3">
-          <Sparkles className="w-10 h-10 text-[#B7FF00] mx-auto" />
+        <div className="bg-card border border-neutral-800 rounded-2xl p-16 text-center space-y-3">
+          <Sparkles className="w-10 h-10 text-primary mx-auto" />
           <h3 className="text-xl font-bold">{tab} Generator Active</h3>
           <p className="text-sm text-neutral-400 max-w-md mx-auto">AI models are ready to draft high-converting {tab.toLowerCase()} for your Instagram profile.</p>
         </div>

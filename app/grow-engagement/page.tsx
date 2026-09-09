@@ -28,12 +28,12 @@ export default function GrowEngagementPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-[#FAFAFA] p-6 sm:p-10 max-w-4xl mx-auto">
+    <div className="min-h-screen bg-background text-foreground p-6 sm:p-10 max-w-4xl mx-auto">
       <div className="flex items-center justify-between mb-8">
         <Link href="/dashboard" className="text-sm text-neutral-400 hover:text-white flex items-center gap-1">
           <ArrowLeft className="w-4 h-4" /> Back to Dashboard
         </Link>
-        <span className="text-xs font-mono text-[#B7FF00]">ENGAGEMENT OPTIMIZATION</span>
+        <span className="text-xs font-mono text-primary">ENGAGEMENT OPTIMIZATION</span>
       </div>
 
       <h1 className="text-3xl font-bold tracking-tight mb-2">Grow Engagement</h1>
@@ -45,7 +45,7 @@ export default function GrowEngagementPage() {
             key={m}
             onClick={() => setMode(m)}
             className={`px-5 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition ${
-              mode === m ? 'bg-[#B7FF00] text-black font-bold' : 'bg-[#121212] border border-neutral-800 text-neutral-300 hover:text-white'
+              mode === m ? 'bg-primary text-white font-bold' : 'bg-card border border-neutral-800 text-neutral-300 hover:text-white'
             }`}
           >
             {m}
@@ -55,7 +55,7 @@ export default function GrowEngagementPage() {
 
       {mode === 'Comments' ? (
         <div className="space-y-6">
-          <div className="bg-[#121212] border border-neutral-800 rounded-2xl p-6 sm:p-8">
+          <div className="bg-card border border-neutral-800 rounded-2xl p-6 sm:p-8">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-lg font-bold">AI Comment Suggestions</h3>
@@ -75,11 +75,11 @@ export default function GrowEngagementPage() {
                 {suggestions.map((s) => (
                   <div key={s.id} className="bg-neutral-900 border border-neutral-800 p-5 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div>
-                      <span className="text-[10px] font-mono bg-[#B7FF00]/10 text-[#B7FF00] px-2.5 py-1 rounded-full">{s.type}</span>
+                      <span className="text-[10px] font-mono bg-primary/10 text-primary px-2.5 py-1 rounded-full">{s.type}</span>
                       <p className="text-sm text-white mt-2">&ldquo;{s.text}&rdquo;</p>
                     </div>
                     <div className="flex items-center gap-2 w-full sm:w-auto">
-                      <button onClick={() => alert('Copied to clipboard!')} className="w-full sm:w-auto bg-[#B7FF00] text-black font-semibold text-xs px-4 py-2 rounded-lg hover:bg-[#a3e600] transition">
+                      <button onClick={() => alert('Copied to clipboard!')} className="w-full sm:w-auto bg-primary text-white font-semibold text-xs px-4 py-2 rounded-lg hover:bg-primary/90 transition">
                         Use
                       </button>
                     </div>
@@ -90,8 +90,8 @@ export default function GrowEngagementPage() {
           </div>
         </div>
       ) : (
-        <div className="bg-[#121212] border border-neutral-800 rounded-2xl p-12 text-center space-y-3">
-          <Sparkles className="w-10 h-10 text-[#B7FF00] mx-auto" />
+        <div className="bg-card border border-neutral-800 rounded-2xl p-12 text-center space-y-3">
+          <Sparkles className="w-10 h-10 text-primary mx-auto" />
           <h3 className="text-xl font-bold">{mode} Engine Active</h3>
           <p className="text-sm text-neutral-400 max-w-md mx-auto">AI optimization algorithms are actively tuning your account metrics for maximum {mode.toLowerCase()}.</p>
         </div>
